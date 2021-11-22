@@ -25,7 +25,10 @@ const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 const charactersSpecial = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '='];
 
 var choices = [
-  lowerCaseLetters, upperCaseLetter, numbers, charactersSpecial
+  lowerCaseLetters, 
+  upperCaseLetter, 
+  numbers, 
+  charactersSpecial
 ];
 
 // select choices
@@ -47,6 +50,7 @@ function selectChoice() {
   return characters;
 }
 
+// select password length
 function pwLength() {
   var passLength = parseInt(
     prompt('How long would you like your password? We can take 8-128 characters.')
