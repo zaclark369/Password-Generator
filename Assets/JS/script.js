@@ -19,11 +19,43 @@
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
 
-var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
-var charactersSpecial = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '='];
+const lowerCaseLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+const upperCaseLetter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const charactersSpecial = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '='];
 
+var choices = [
+  lowerCaseLetters, upperCaseLetter, numbers, charactersSpecial
+];
 
+// select choices
+function selectChoice() {
+  var characters = [];
+  while (characters.length < 1) {
+    for (var i = 0; i < characters.length; i++) {
+      var userPrompt = confirm('Use ${choices}[i] in your password?');
+      if (userPrompt) {
+        for (var j = 0; j < characters.length; j++) {
+          characters.push(choices[i][j]);
+        }
+      }
+    }
+    if (characters.length < 1) {
+      alert('Please select characters to procede.');
+    }
+  }
+  return characters;
+}
+
+function pwLength() {
+  var passLength = parseInt(
+    prompt('How long would you like your password? We can take 8-128 characters.')
+  );
+  while (isNaN(passLength) || passLength < 8 || passLength > 128) {
+    passLength = parseInt(prompt('Please select a number between 8-128'));
+  }
+  return passLength;
+}
 
 
 // Get references to the #generate element
