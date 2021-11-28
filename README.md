@@ -15,7 +15,7 @@ https://zaclark369.github.io/Password-Generator/
 
 ## Screenshot
 The websites landing page.
-   ![screenshot of the website](assets/images/screencapture.png)
+   ![screenshot of the website](Assets/Images/screencapture.PNG)
 
 
 ## Contribution
